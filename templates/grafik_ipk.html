@@ -1,0 +1,7 @@
+<h3>Grafik IPK</h3>
+<p>Data IPK per semester:</p>
+<ul>
+    {% for ipk in data_ipk %}
+    <li>Semester {{ loop.index }}: {{ ipk }}</li>
+    {% endfor %}
+</ul>

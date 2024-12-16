@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Diri</title>
+    
+    <!-- Main CSS File -->
+  <link href="static/css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+    {% extends 'base_menu.html' %}
+
+    {% block content %}
+
+    <section id="home" class="home section">
+        <div class="container text-center">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <h1 data-aos="fade-up">Data Diri</span></h1>
+                <!-- Form untuk input data -->
+                <form method="POST">
+                    <label for="NIM">NIM:</label>
+                    <input type="text" id="NIM" name="NIM" required><br><br>
+
+                    <label for="Nama">Nama:</label>
+                    <input type="text" id="Nama" name="Nama" required><br><br>
+
+                    <label for="Jur">Jurusan:</label>
+                    <input type="text" id="Jur" name="Jur" required><br><br>
+
+                    <label for="id_matkul">Id Mata Kuliah:</label>
+                    <input type="text" id="id_matkul" name="id_matkul" required><br><br>
+
+                    <label for="Nama_MK">Nama Mata Kuliah:</label>
+                    <input type="text" id="Nama_MK" name="Nama_MK" required><br><br>
+
+                    <label for="SKS">Jumlah SKS:</label>
+                    <input type="text" id="SKS" name="SKS" required><br><br>
+
+                    <label for="Nilai_Nilai">Nilai:</label>
+                    <input type="text" id="Nilai_Nilai" name="Nilai_Nilai" required><br><br>
+
+                    <button type="submit">Tambah Data</button>
+                </form>
+
+            </br>
+        </br>
+
+        <h4> Data Diri Mahasiswa </h4>
+        <ul>
+            {% for mhs in mahasiswa %}
+                <li> {{mhs.NIM}} </li>
+                <li> {{mhs.Nama}} </li>
+                <li> {{mhs.Jur}} </li>
+            {% endfor %}
+        </ul>
+
+        <h4> Mata Kuliah yang Diambil </h4>
+        <ul>
+            {% for mk in mataKuliah %}
+                <li> {{mk.id_matkul}} </li>
+                <li> {{mk.Nama_MK}} </li>
+                <li> {{mk.SKS}} </li>
+                {% if mk.nilai %}
+                    <li> {{mk.nilai[0].Nilai_Nilai}} </li>
+                {% else %}
+                    <li> Nilai belum tersedia </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}
+</body>
+
+</html>

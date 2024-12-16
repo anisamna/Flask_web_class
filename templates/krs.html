@@ -1,0 +1,19 @@
+<h3>Kartu Rencana Studi (KRS)</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kode</th>
+            <th>Mata Kuliah</th>
+            <th>SKS</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for matkul in mata_kuliah %}
+        <tr>
+            <td>{{ matkul.kode }}</td>
+            <td>{{ matkul.nama }}</td>
+            <td>{{ matkul.sks }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
